@@ -1,0 +1,13 @@
+{
+  "name": "anumati",
+  "version": "0.1.0",
+  "description": "Patient-held, consent-driven health record with cryptographic consent and live revocation",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}

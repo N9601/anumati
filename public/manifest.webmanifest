@@ -1,0 +1,10 @@
+{
+  "name": "Anumati",
+  "short_name": "Anumati",
+  "description": "Patient-held, consent-driven health record",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eef1f4",
+  "theme_color": "#0b6e65",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anumati stage demo</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg: #0e1a22; --ink: #e8eef2; --muted: #93a4b1; --brand: #3fc1b0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(1200px 600px at 50% -10%, #173340, var(--bg)); color: var(--ink); font: 15px/1.4 "Segoe UI", system-ui, sans-serif; }
+    header { text-align: center; padding: 20px 16px 6px; }
+    header h1 { margin: 0; font-size: 22px; font-weight: 650; letter-spacing: 0.01em; }
+    header p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+    .stage { display: flex; justify-content: center; align-items: flex-start; gap: 56px; padding: 18px 16px 28px; flex-wrap: wrap; }
+    .device { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .device .label { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brand); }
+    .phone { width: 390px; height: 780px; border-radius: 44px; padding: 12px; background: #05090c; box-shadow: 0 0 0 2px #2a3a44, 0 30px 80px rgba(0, 0, 0, 0.5); position: relative; }
+    .phone iframe, .phone .empty { width: 100%; height: 100%; border: 0; border-radius: 34px; background: #eef1f4; display: block; }
+    .phone .empty { display: grid; place-items: center; text-align: center; color: #6a7885; padding: 30px; font-size: 15px; }
+    .arrow { align-self: center; color: var(--muted); font-size: 13px; text-align: center; max-width: 120px; }
+    .arrow svg { display: block; margin: 0 auto 6px; }
+    footer { text-align: center; padding-bottom: 20px; }
+    button { background: transparent; color: var(--muted); border: 1px solid #2a3a44; border-radius: 10px; padding: 8px 14px; font: inherit; cursor: pointer; }
+    button:hover { color: var(--ink); }
+    @media (max-width: 960px) { .arrow { display: none; } .stage { gap: 28px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Anumati: patient-held, consent-driven health record</h1>
+    <p>Left is the patient's phone. Right is the doctor's phone after scanning the consent QR.</p>
+  </header>
+  <div class="stage">
+    <div class="device">
+      <div class="label">Patient</div>
+      <div class="phone"><iframe id="patient" src="index.html#share" title="Patient phone"></iframe></div>
+    </div>
+    <div class="arrow">
+      <svg width="40" height="24" viewBox="0 0 40 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h34M28 4l8 8-8 8"/></svg>
+      scans QR
+    </div>
+    <div class="device">
+      <div class="label">Doctor</div>
+      <div class="phone" id="doctor-phone"><div class="empty" id="doctor-empty">Waiting for the patient to create a consent QR.</div></div>
+    </div>
+  </div>
+  <footer><button id="reset">Reset stage</button></footer>
+  <script type="module" src="js/demo.js"></script>
+</body>
+</html>
